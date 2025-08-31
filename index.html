@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Offline Khatabook</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Khatabook</h1>
+  </header>
+
+  <main class="container">
+    <section id="customer-form">
+      <h2>Add Customer</h2>
+      <input type="text" id="customerName" placeholder="Customer Name" required />
+      <input type="text" id="customerPhone" placeholder="Phone Number" />
+      <button onclick="addCustomer()">➕ Add Customer</button>
+    </section>
+
+    <section id="customer-list">
+      <h2>Customer List</h2>
+    </section>
+
+    <section id="ledger" style="display:none;">
+      <h2 id="ledger-title">Ledger</h2>
+      <div class="entry-form">
+        <input type="number" id="amount" placeholder="Amount" />
+        <input type="text" id="note" placeholder="Note (e.g. Payment, Item...)" />
+        <select id="type">
+          <option value="credit">Credit (+)</option>
+          <option value="debit">Debit (-)</option>
+        </select>
+        <button onclick="addEntry()">💰 Add Entry</button>
+        <button onclick="goBack()">🔙 Back</button>
+      </div>
+      <ul id="entry-list"></ul>
+      <p><strong>Total Balance:</strong> ₹<span id="total-amount">0</span></p>
+    </section>
+  </main>
+
+  <div id="chatbot-button" onclick="toggleChatbot()">💬</div>
+  <div id="chatbot-box">
+    <div id="chat-messages"></div>
+    <input type="text" id="chat-input" placeholder="Ask something..." onkeypress="handleChatKey(event)"/>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
